@@ -1,0 +1,191 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rive·Mary Blog</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* 背景图片设置 */
+  .background {
+    background-image: url('Image/Background.png'); /* 图片路径 */
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  /* 按钮样式 */
+  .nav {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 60px;
+  }
+
+  .nav button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-family: 'Microsoft YaHei', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s, border-color 0.3s;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100px;
+    margin: 0 10px;
+  }
+
+  .nav button:hover {
+    background-color: rgba(255, 255, 255, 0.65);
+    border-color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* 内容盒子样式 */
+  .content {
+    position: absolute;
+    position: relative;
+    right: 90px; /* 距离右侧60像素，考虑到按钮的宽度 */
+    top: 100px; /* 从顶部开始，可以根据需要调整 */
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    gap: 24px; /* 盒子之间的间距 */
+    width: calc(100% - 180px); /* 宽度为浏览器宽度减去左右各90像素 */
+    left: 90px; /* 距离浏览器左侧90像素 */
+  }
+
+  .content .box {
+    width: calc(700px);
+    height: auto; /* 高度根据内容自动调整 */
+    background-color: white;
+    border-radius: 10px;
+    opacity: 0.8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    transition: box-shadow 0.3s; /* 阴影过渡效果 */
+    padding: 20px; /* 内边距 */
+    box-sizing: border-box; /* 确保内边距和边框包含在元素的总宽度和高度内 */
+    /* 其他样式 */
+    font-size: 16px; /* 设置字体大小 */
+    font-family:  'Microsoft YaHei', sans-serif; /* 设置字体样式 */
+    font-weight: normal; /* 设置字体粗细，normal为正常，bold为粗体 */
+    font-style: normal; /* 设置字体风格，normal为正常，italic为斜体 */
+    line-height: 1.5; /* 设置行高，可以是数字或单位 */
+    color: #333; /* 设置字体颜色 */
+    width: 100%; /* 盒子宽度占满.content容器 */
+  /* 水平居中文本 */
+    text-align: center;
+  }
+
+  /* 为第一个盒子设置粗体 */
+.content .box:first-child {
+  font-weight: bold; /* 设置字体为粗体 */
+}
+
+/* 为鼠标悬停在盒子上时增加阴影 */
+.content .box:hover {
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.6); /* 鼠标悬停时的阴影效果 */
+}
+
+.content .buttons {
+  display: flex; /* 使用flexbox布局 */
+  justify-content: space-between; /* 按钮之间的空间均匀分布 */
+  align-items: center; /* 垂直居中对齐 */
+  position: absolute; /* 绝对定位，相对于.content */
+  bottom: -100px; /* 距离底部100像素 */
+  left: 50; /* 从.content的左侧开始 */
+  width: 100%; /* 宽度占满.content */
+  padding: 0 150px; /* 左右内边距，确保按钮与.content边缘有150像素的间距 */
+  box-sizing: border-box; /* 确保内边距包含在宽度内 */
+}
+
+.content .button {
+  background-color: rgba(255, 255, 255, 0.8); /* 白色背景，透明度80% */
+  border: none; /* 无边框 */
+  padding: 10px 20px; /* 内边距 */
+  margin: 0; /* 移除外边距 */
+  cursor: pointer; /* 鼠标悬停时显示手型 */
+  font-size: 16px; /* 字体大小 */
+  font-family: 'Microsoft YaHei', sans-serif; /* 字体样式 */
+  color: #333; /* 字体颜色 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+  transition: box-shadow 0.3s; /* 阴影过渡效果 */
+}
+
+.content .button:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 鼠标悬停时的阴影效果 */
+}
+
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="nav">
+  <button>首页</button>
+  <button>个人</button>
+  <button>项目</button>
+  <button>关于</button>
+</div>
+
+<div class="content">
+  <div class="box">新的开发，新的开始</div>
+  <div class="box">我们已确定目标，向着它前进</div>
+  <div class="box">我们曾经做过的软件有Mine-Servers, SafeTools以及SubDesktop的半成品</div>
+  <div class="box">我们接下来要做的项目:"SubDesktop完善版","梦境[Games]"以及"配角[Game]"
+  <div class="greeting">在前几年，我在Bilibili以及其它平台上并没有活跃更新过，而在那一段时间，我一直在做"梦境"与"配角"这两款2.5D的游戏，融合了3D内容，奈何在绘图方面我实在没有什么办法，因此我们的开发时间定于2027年。但是"SubDesktop"和"梦境"这两款自制软件我将会从2025年开始开发，"SubDesktop"将会开发的快一点，这一路上感谢粉丝们的支持，我没有忘掉过初心，也没有放弃过梦想！</div>
+  </div>
+  <div class="box image-box"></div>
+  <div class="buttons">
+    <a href="https://space.bilibili.com/557595265?spm_id_from=333.1007.0.0" class="button">Bilibili-Home</a>
+    <a href="https://github.com/SentCory" class="button">Github-Home</a>
+    <a href="https://discord.gg" class="button">Discord-Team</a>
+  </div>
+  </div>
+  <!-- 更多内容盒子 -->
+</div>
+
+<script>
+  // 鼠标点击效果
+  document.addEventListener('click', function(e) {
+    var circle = document.createElement('div');
+    circle.style.position = 'absolute';
+    circle.style.left = e.pageX + 'px';
+    circle.style.top = e.pageY + 'px';
+    circle.style.width = '0px';
+    circle.style.height = '0px';
+    circle.style.borderRadius = '50%';
+    circle.style.backgroundColor = e.button === 0 ? 'blue' : 'cyan';
+    circle.style.pointerEvents = 'none';
+    document.body.appendChild(circle);
+
+    function animateCircle() {
+      var diameter = Math.max(document.body.clientWidth, document.body.clientHeight);
+      circle.style.width = circle.style.height = diameter + 'px';
+      circle.style.opacity = 0;
+    }
+
+    setTimeout(animateCircle, 10);
+    setTimeout(() => {
+      document.body.removeChild(circle);
+    }, 700);
+  });
+</script>
+
+</body>
+</html>
