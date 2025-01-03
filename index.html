@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -161,19 +161,7 @@
 </div>
 
 <script>
-  // 鼠标点击效果
-  document.addEventListener('click', function(e) {
-    var circle = document.createElement('div');
-    circle.style.position = 'absolute';
-    circle.style.left = e.pageX + 'px';
-    circle.style.top = e.pageY + 'px';
-    circle.style.width = '0px';
-    circle.style.height = '0px';
-    circle.style.borderRadius = '50%';
-    circle.style.backgroundColor = e.button === 0 ? 'blue' : 'cyan';
-    circle.style.pointerEvents = 'none';
-    document.body.appendChild(circle);
-
+  
     function animateCircle() {
       var diameter = Math.max(document.body.clientWidth, document.body.clientHeight);
       circle.style.width = circle.style.height = diameter + 'px';
